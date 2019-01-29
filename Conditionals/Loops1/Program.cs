@@ -12,7 +12,7 @@ namespace Loops1
         static void Main(string[] args)
         {
             double ExamGrades = 0;
-            double Total = 0;
+            double Total = 300;
             double average = 0;
 
             for (int i = 1; i <= 3; i++)
@@ -23,12 +23,14 @@ namespace Loops1
 
             }
 
-                Total += ExamGrades;
+                ExamGrades += ExamGrades;
                 average = ExamGrades / Total;
+            //Not Averaging out correctly
 
-                Console.WriteLine("The average for your combined exams is: ");
-                Console.WriteLine(average.ToString("P2"));
-
+            Console.Write("The average for your combined exams is: ");
+            Console.WriteLine(average.ToString("P2"));
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to Continue...");
             Console.ReadKey();
         }
     }

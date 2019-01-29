@@ -26,23 +26,59 @@ namespace Conditionals
             TotalGears = Convert.ToDouble(Console.ReadLine());
 
             double TotalShoes = TotalCogs + TotalGears;
+            double TotalCogsPrice = 0;
+            double TotalGearsPrice = 0;
 
+            if (TotalCogs > 16 && TotalGears > 16)
+            {
+                 TotalCogsPrice = TotalCogs * otherMarkup * salesTax;
+                 TotalGearsPrice = TotalGears * otherMarkup * salesTax;
+            }
             if (TotalCogs < 10 )
             {
-               double TotalCogsPrice = TotalCogs* floorMarkup;
+                TotalCogsPrice = TotalCogs * floorMarkup * salesTax;
             }
             else if(TotalGears < 10)
             {
-                double TotalGearsPrice = TotalGears * floorMarkup;
+                 TotalGearsPrice = TotalGears * floorMarkup * salesTax;
             }
             else if(TotalGears > 10)
             {
-                double TotalGearsPrice = TotalGears * otherMarkup;
+                 TotalGearsPrice = TotalGears * otherMarkup * salesTax;
             }
             else if(TotalCogs > 10)
             {
-                double TotalCogsPrice = TotalCogs * otherMarkup;
+                 TotalCogsPrice = TotalCogs * otherMarkup * salesTax;
             }
+
+            double TotalSalesTax = 0;
+            TotalCogsPrice += Cogs;
+            TotalGearsPrice += Gears;
+            double OverallDiscount = floorMarkup + otherMarkup;
+            double TotalOverall = (TotalCogsPrice + TotalGearsPrice) * TotalSalesTax * OverallDiscount ;
+             TotalSalesTax = TotalOverall * salesTax;
+            double OverallbTax = TotalCogsPrice + TotalGearsPrice;
+            
+
+            Console.WriteLine("\t\t\t\t\t-----Reciept for Purchase-----");
+            Console.WriteLine();
+
+            Console.Write("\tThe Total before Tax is:\t\t\t\t\t ");
+            Console.WriteLine(OverallbTax.ToString("C2"));
+
+            Console.Write("\tThe Grand Total after Tax is:\t\t\t\t\t ");
+            Console.WriteLine(TotalOverall.ToString("C2"));
+
+            Console.Write("\tThe Total Discount is:\t\t\t\t\t\t ");
+            Console.WriteLine(OverallDiscount.ToString("C2"));
+
+            Console.Write("\tThe Total Sales Tax is:\t\t\t\t\t\t ");
+            Console.WriteLine(TotalSalesTax.ToString("C2"));
+            Console.WriteLine();
+
+            Console.WriteLine("\tPress Enter to Continue...");
+            Console.ReadKey();
+
 
 
         }
